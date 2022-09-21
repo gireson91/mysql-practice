@@ -50,5 +50,8 @@ delete from customers where cust_id=2;
 
 insert into customers(cust_name, dob, phone_number, house_number, postcode, email) values("Rob Long", 19941104, "07987253088", "983", "UB548DF", "roblong@outlook.co.uk");
 
-insert into menu_items(item_name, item_desc, price, calories, allergens) values("Prawn Cocktail", "Prawns with a marie rose sauce", "07956783922", "34", "PL238WE", "jessieb@hotmail.co.uk");
+insert into menu_items(item_name, item_desc, price, calories, allergen) values("Prawn Cocktail", "Prawns with a marie rose sauce", "6.95", "600", "Shellfish");
+
 select * from customers;
+select * from menu_items;
+
