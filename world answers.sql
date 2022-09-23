@@ -54,12 +54,16 @@ select distinct `language` from countrylanguage;
 select `name`, GNP from country order by GNP desc limit 10;
 
 #16 list of names and number of languages spoken by top ten most multilingual countries
-select c.`name`, count(cl.`language`) from country c join countrylanguage cl on c.`code`=cl.countrycode where c.`code`=cl.countrycode;
-select c.`name`, count(cl.`language`) from country c join countrylanguage cl on c.`code`=cl.countrycode;
+select c.`name`, count(cl.`language`) from country c join countrylanguage cl on c.`code`=cl.countrycode group by c.`name` order by count(cl.`language`) desc limit 10;
 
 #17 list of countries where over 50% of population can speak German
 select c.`name`, cl.`language`, cl.percentage from countrylanguage cl join country c on c.`code`=cl.countrycode where `language`="German" and percentage>=50 order by percentage desc;
 
 #18 country with worst life expectancy
+select `name`, lifeexpectancy from country where lifeexpectancy is not null and lifeexpectancy !=0 order by lifeexpectancy asc limit 1;
 
+#19 list top 3 most common government forms
+select c.governmentform, count(c.governmentform) from country c group by c.governmentform order by count(c.governmentform) desc limit 3;
 
+#20 how many countries have gained independance since records began
+select count(c.indepyear) from country c where indepyear is not null;
